@@ -1,0 +1,47 @@
+import java.util.*;
+
+public class NumberGuessing {
+		public static void main(String args[]) {
+			// Scanner Class
+			Scanner s = new Scanner(System.in);
+			System.out.println("Enter Some range:\n");
+			int value = s.nextInt();
+	        int number = 1 + (int)(value* Math.random());
+	        int guessedNumber,chances=0;
+	        System.out.println("Welcome to NumberGuessing Game...");
+	        System.out.println("You need to guess a number between 1 to 100.\n" + "You get 5 chances to guess the correct number");
+	 
+	        // Iterate over number of Trials
+	        do 
+	        {
+	        	int i=0;
+	            System.out.println("Guess the number:");
+	 
+	            // Take input for guessing
+	            guessedNumber = s.nextInt();
+	 
+	            // If the number is guessed
+	            //if (number < guessedNumber && i != 5 - 1) 
+	            if (number < guessedNumber) 
+	            {
+	                System.out.println("The number is" + " less than " + guessedNumber);
+	                i++;
+	            }
+	            else if(number > guessedNumber) {
+	                System.out.println("The number is " + "greater than " + guessedNumber);
+	                i++;
+	            }
+	            else if(number==guessedNumber){
+	                System.out.println("Congratulations!" + " You guessed the number.You Win!!!");
+	                i++; 
+	                break;
+	            }
+	            chances++;
+	            if(chances==5) {
+		            System.out.println("Sorry!! You have completed your" + " number of trials.You Lost!!!");
+		            System.out.println("Better Luck next time!!");
+		            System.out.println("The number you have missed was\t" + number);
+			}
+	        }while(chances<5);
+		}
+}
